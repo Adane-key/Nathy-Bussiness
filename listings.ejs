@@ -1,0 +1,53 @@
+<%- include('partials/shell-header', { pageTitle: t('admin.listings'), currentSection: 'listings' }) %>
+
+      <div class="admin-topbar">
+        <h2 class="mt-0"><%= t('admin.listings') %></h2>
+        <a href="/admin/listings/<%= categoryDef.id %>/new" class="btn btn-primary"><%= t('admin.addListing') %></a>
+      </div>
+
+      <div class="main-nav" style="margin-bottom:20px; background: var(--white); border:1px solid var(--line); border-radius: 999px; padding:4px; display:inline-flex;">
+        <% ['land','house','car','sound','decoration'].forEach(function(c) { %>
+          <a href="/admin/listings/<%= c %>" class="<%= categoryDef.id === c ? 'active' : '' %>" style="color: var(--ink-teal);"><%= c %></a>
+        <% }) %>
+      </div>
+
+      <div class="table-card">
+        <% if (listings.length === 0) { %>
+          <div class="empty-state"><%= t('admin.noListings') %></div>
+        <% } else { %>
+        <table>
+          <thead>
+            <tr>
+              <th><%= t('admin.titleEn') %></th>
+              <th><%= t('filters.type') %></th>
+              <th><%= t('admin.price') %></th>
+              <th><%= t('filters.location') %></th>
+              <th>Status</th>
+              <th><%= t('admin.actions') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% listings.forEach(function(item) { %>
+              <% var loc = locations.find(function(l){ return l.id === item.locationId }); %>
+              <tr>
+                <td><%= item.titleEn %></td>
+                <td><span class="badge badge-<%= item.type %>"><%= item.type %></span></td>
+                <td><%= Number(item.price).toLocaleString() %> <%= item.currency %></td>
+                <td><%= loc ? loc.nameEn : '-' %></td>
+                <td><span class="badge badge-<%= item.status %>"><%= item.status %></span></td>
+                <td>
+                  <div class="row-actions">
+                    <a href="/admin/listings/<%= categoryDef.id %>/<%= item.id %>/edit" class="btn btn-secondary btn-sm">Edit</a>
+                    <form method="post" action="/admin/listings/<%= categoryDef.id %>/<%= item.id %>/delete" onsubmit="return confirm('<%= t('admin.confirmDelete') %>')">
+                      <button type="submit" class="btn btn-danger btn-sm"><%= t('admin.deleteListing') %></button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <% } %>
+      </div>
+
+<%- include('partials/shell-footer') %>

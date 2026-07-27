@@ -1,0 +1,47 @@
+[
+  {
+    "id": "land",
+    "nameEn": "Land",
+    "nameAm": "መሬት",
+    "icon": "land",
+    "types": ["rent", "sell"],
+    "unitEn": "sq. meter",
+    "unitAm": "ካሬ ሜትር"
+  },
+  {
+    "id": "house",
+    "nameEn": "House",
+    "nameAm": "ቤት",
+    "icon": "house",
+    "types": ["rent", "sell"],
+    "unitEn": "month",
+    "unitAm": "ወር"
+  },
+  {
+    "id": "car",
+    "nameEn": "Car",
+    "nameAm": "መኪና",
+    "icon": "car",
+    "types": ["rent", "sell"],
+    "unitEn": "day",
+    "unitAm": "ቀን"
+  },
+  {
+    "id": "sound",
+    "nameEn": "Sound Equipment",
+    "nameAm": "የድምጽ ዕቃዎች",
+    "icon": "sound",
+    "types": ["rent", "sell"],
+    "unitEn": "event",
+    "unitAm": "ዝግጅት"
+  },
+  {
+    "id": "decoration",
+    "nameEn": "Decoration",
+    "nameAm": "ማስዋቢያ",
+    "icon": "decoration",
+    "types": ["rent"],
+    "unitEn": "event",
+    "unitAm": "ዝግጅት"
+  }
+]

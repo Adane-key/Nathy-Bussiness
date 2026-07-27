@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= t('admin.loginTitle') %> — <%= t('siteName') %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="login-shell">
+    <div class="login-card">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <%= t('siteName') %>
+      </div>
+      <h2 class="text-center"><%= t('admin.loginTitle') %></h2>
+      <% if (error) { %>
+        <div class="alert alert-error"><%= t('admin.invalidLogin') %></div>
+      <% } %>
+      <form method="post" action="/admin/login">
+        <div class="field" style="margin-bottom:14px;">
+          <label for="username"><%= t('admin.username') %></label>
+          <input type="text" id="username" name="username" required autofocus />
+        </div>
+        <div class="field" style="margin-bottom:20px;">
+          <label for="password"><%= t('admin.password') %></label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block"><%= t('admin.login') %></button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

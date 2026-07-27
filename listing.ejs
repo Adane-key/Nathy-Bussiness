@@ -1,0 +1,52 @@
+<%- include('partials/header', { pageTitle: lang === 'am' ? listing.titleAm : listing.titleEn }) %>
+
+  <section class="section">
+    <div class="container">
+      <a href="/<%= categoryDef.id %>" class="back-link">&larr; <%= t('listing.backToList') %></a>
+
+      <div class="detail-grid">
+        <div>
+          <div class="detail-media">
+            <div class="placeholder-media"><%= lang === 'am' ? categoryDef.nameAm : categoryDef.nameEn %></div>
+          </div>
+          <div style="margin-top:24px;">
+            <span class="badge badge-<%= listing.type %>"><%= t('filters.' + listing.type) %></span>
+            <h1><%= lang === 'am' ? listing.titleAm : listing.titleEn %></h1>
+            <p><%= lang === 'am' ? listing.descAm : listing.descEn %></p>
+          </div>
+        </div>
+
+        <div class="detail-panel">
+          <div class="listing-price">
+            <%= Number(listing.price).toLocaleString() %> <%= listing.currency %>
+            <small> <%= listing.priceUnit %></small>
+          </div>
+
+          <ul class="detail-meta">
+            <li><span><%= t('listing.location') %></span><span><%= location ? (lang === 'am' ? location.nameAm : location.nameEn) : '-' %></span></li>
+            <li><span><%= t('listing.status') %></span><span class="badge badge-<%= listing.status %>"><%= t('listing.' + listing.status) %></span></li>
+            <li><span><%= t('listing.contact') %></span><span><%= listing.contactPhone %></span></li>
+          </ul>
+
+          <h3><%= t('booking.title') %></h3>
+          <form method="post" action="/<%= categoryDef.id %>/<%= listing.id %>/book">
+            <div class="field" style="margin-bottom:12px;">
+              <label for="customerName"><%= t('booking.yourName') %></label>
+              <input type="text" id="customerName" name="customerName" required />
+            </div>
+            <div class="field" style="margin-bottom:12px;">
+              <label for="customerPhone"><%= t('booking.yourPhone') %></label>
+              <input type="tel" id="customerPhone" name="customerPhone" required />
+            </div>
+            <div class="field" style="margin-bottom:16px;">
+              <label for="message"><%= t('booking.message') %></label>
+              <textarea id="message" name="message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block"><%= t('booking.submit') %></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<%- include('partials/footer') %>

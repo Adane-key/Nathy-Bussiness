@@ -1,0 +1,73 @@
+<%- include('partials/header', { pageTitle: '' }) %>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <h1><%= t('home.heroTitle') %></h1>
+        <p class="lead"><%= t('home.heroSubtitle') %></p>
+        <form class="hero-search" action="/land" method="get">
+          <select name="category" onchange="window.location.href = '/' + this.value">
+            <% categories.forEach(function(cat) { %>
+              <option value="<%= cat.id %>"><%= lang === 'am' ? cat.nameAm : cat.nameEn %></option>
+            <% }) %>
+          </select>
+          <button type="submit" class="btn btn-primary">
+            <%= t('filters.apply') %>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <hr class="stripe" />
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <span class="eyebrow"><%= t('home.categoriesTitle') %></span>
+          <h2><%= t('home.categoriesTitle') %></h2>
+        </div>
+      </div>
+      <div class="category-grid">
+        <% categories.forEach(function(cat) { %>
+          <a href="/<%= cat.id %>" class="category-card">
+            <div class="category-icon" aria-hidden="true"><%- categoryIcon(cat.icon) %></div>
+            <h3><%= lang === 'am' ? cat.nameAm : cat.nameEn %></h3>
+            <div class="cat-sub"><%= cat.types.map(function(ty){ return t('filters.' + ty) }).join(' · ') %></div>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">Hossana</span>
+          <h2><%= t('home.howTitle') %></h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">01</span>
+          <p class="mt-0"><%= t('home.step1') %></p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <p class="mt-0"><%= t('home.step2') %></p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <p class="mt-0"><%= t('home.step3') %></p>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <p class="mt-0"><%= t('home.step4') %></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<%- include('partials/footer') %>

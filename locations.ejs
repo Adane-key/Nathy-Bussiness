@@ -1,0 +1,58 @@
+<%- include('partials/shell-header', { pageTitle: t('admin.locations'), currentSection: 'locations' }) %>
+
+      <div class="admin-topbar">
+        <h2 class="mt-0"><%= t('admin.locations') %></h2>
+      </div>
+
+      <div class="form-card" style="margin-bottom:24px;">
+        <h3 class="mt-0"><%= t('admin.addLocation') %></h3>
+        <form method="post" action="/admin/locations/add">
+          <div class="form-grid">
+            <div class="field">
+              <label for="nameEn"><%= t('admin.nameEn') %></label>
+              <input type="text" id="nameEn" name="nameEn" required />
+            </div>
+            <div class="field">
+              <label for="nameAm"><%= t('admin.nameAm') %></label>
+              <input type="text" id="nameAm" name="nameAm" required />
+            </div>
+          </div>
+          <div style="margin-top:16px;">
+            <button type="submit" class="btn btn-primary"><%= t('admin.addLocation') %></button>
+          </div>
+        </form>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th><%= t('admin.nameEn') %></th>
+              <th><%= t('admin.nameAm') %></th>
+              <th><%= t('admin.actions') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% locations.forEach(function(loc) { %>
+              <tr>
+                <td><input type="text" name="nameEn" form="edit-<%= loc.id %>" value="<%= loc.nameEn %>" /></td>
+                <td><input type="text" name="nameAm" form="edit-<%= loc.id %>" value="<%= loc.nameAm %>" /></td>
+                <td>
+                  <div class="row-actions">
+                    <button type="submit" form="edit-<%= loc.id %>" class="btn btn-secondary btn-sm"><%= t('admin.save') %></button>
+                    <button type="submit" form="delete-<%= loc.id %>" class="btn btn-danger btn-sm" onclick="return confirm('<%= t('admin.confirmDelete') %>')"><%= t('admin.deleteListing') %></button>
+                  </div>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Forms defined outside the table, referenced by inputs/buttons via the form="" attribute -->
+      <% locations.forEach(function(loc) { %>
+        <form id="edit-<%= loc.id %>" method="post" action="/admin/locations/<%= loc.id %>/edit"></form>
+        <form id="delete-<%= loc.id %>" method="post" action="/admin/locations/<%= loc.id %>/delete"></form>
+      <% }) %>
+
+<%- include('partials/shell-footer') %>

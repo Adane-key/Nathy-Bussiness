@@ -1,0 +1,22 @@
+{
+  "name": "hossana-market",
+  "version": "1.0.0",
+  "description": "Bilingual marketplace for land, house, car, sound and decoration rent/sell in Hossana city",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "ejs": "^3.1.10",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

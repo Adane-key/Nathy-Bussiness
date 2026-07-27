@@ -1,0 +1,34 @@
+[
+  {
+    "id": "land-0001",
+    "category": "land",
+    "type": "sell",
+    "titleEn": "500 sq.m residential plot near Gombora road",
+    "titleAm": "500 ካሬ ሜትር የመኖሪያ ቦታ በጎምቦራ መንገድ አካባቢ",
+    "descEn": "Flat residential plot with title deed in progress, close to main road access.",
+    "descAm": "ጠፍጣፋ የመኖሪያ ቦታ ከዋና መንገድ አጠገብ፣ የካርታ ሂደት ላይ ይገኛል።",
+    "price": 850000,
+    "currency": "ETB",
+    "priceUnit": "total",
+    "locationId": "loc-04",
+    "contactPhone": "+251900000001",
+    "status": "available",
+    "createdAt": "2026-06-01T08:00:00.000Z"
+  },
+  {
+    "id": "land-0002",
+    "category": "land",
+    "type": "rent",
+    "titleEn": "200 sq.m farmland for seasonal rent in Ambicho",
+    "titleAm": "200 ካሬ ሜትር የእርሻ መሬት ለጊዜያዊ ኪራይ በአምቢቾ",
+    "descEn": "Fertile plot suitable for enset and vegetable farming, seasonal lease.",
+    "descAm": "ለእንሰትና ለአትክልት እርሻ የሚመች ለምለም መሬት፣ በወቅት ኪራይ።",
+    "price": 12000,
+    "currency": "ETB",
+    "priceUnit": "per season",
+    "locationId": "loc-05",
+    "contactPhone": "+251900000001",
+    "status": "available",
+    "createdAt": "2026-06-05T08:00:00.000Z"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "house-0001",
+    "category": "house",
+    "type": "rent",
+    "titleEn": "2-bedroom house for rent in Jello Naremo",
+    "titleAm": "የ2 መኝታ ቤት ኪራይ በጀሎ ናረሞ",
+    "descEn": "Concrete house with private compound, water and electricity connected.",
+    "descAm": "የኮንክሪት ቤት ከግል ግቢ ጋር፣ ውሃና መብራት ተገናኝቷል።",
+    "price": 6500,
+    "currency": "ETB",
+    "priceUnit": "per month",
+    "locationId": "loc-01",
+    "contactPhone": "+251900000002",
+    "status": "available",
+    "createdAt": "2026-06-02T08:00:00.000Z"
+  },
+  {
+    "id": "house-0002",
+    "category": "house",
+    "type": "sell",
+    "titleEn": "3-bedroom family house for sale in Hetto",
+    "titleAm": "የ3 መኝታ የቤተሰብ ቤት ሽያጭ በሄጦ",
+    "descEn": "Well maintained house with a large yard, near school and market access.",
+    "descAm": "በደንብ የተያዘ ቤት ከሰፊ ግቢ ጋር፣ ከትምህርት ቤትና ገበያ አጠገብ።",
+    "price": 2400000,
+    "currency": "ETB",
+    "priceUnit": "total",
+    "locationId": "loc-02",
+    "contactPhone": "+251900000002",
+    "status": "available",
+    "createdAt": "2026-06-08T08:00:00.000Z"
+  }
+]

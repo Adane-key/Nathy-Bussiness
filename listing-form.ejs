@@ -1,0 +1,70 @@
+<%- include('partials/shell-header', { pageTitle: listing ? t('admin.editListing') : t('admin.addListing'), currentSection: 'listings' }) %>
+
+      <div class="admin-topbar">
+        <h2 class="mt-0"><%= listing ? t('admin.editListing') : t('admin.addListing') %> — <%= categoryDef.nameEn %></h2>
+      </div>
+
+      <div class="form-card">
+        <form method="post" action="<%= listing ? '/admin/listings/' + categoryDef.id + '/' + listing.id + '/edit' : '/admin/listings/' + categoryDef.id + '/new' %>">
+          <div class="form-grid">
+            <div class="field field-full">
+              <label for="titleEn"><%= t('admin.titleEn') %></label>
+              <input type="text" id="titleEn" name="titleEn" required value="<%= listing ? listing.titleEn : '' %>" />
+            </div>
+            <div class="field field-full">
+              <label for="titleAm"><%= t('admin.titleAm') %></label>
+              <input type="text" id="titleAm" name="titleAm" required value="<%= listing ? listing.titleAm : '' %>" />
+            </div>
+            <div class="field field-full">
+              <label for="descEn"><%= t('admin.descEn') %></label>
+              <textarea id="descEn" name="descEn" required><%= listing ? listing.descEn : '' %></textarea>
+            </div>
+            <div class="field field-full">
+              <label for="descAm"><%= t('admin.descAm') %></label>
+              <textarea id="descAm" name="descAm" required><%= listing ? listing.descAm : '' %></textarea>
+            </div>
+            <div class="field">
+              <label for="type"><%= t('filters.type') %></label>
+              <select id="type" name="type">
+                <% categoryDef.types.forEach(function(ty) { %>
+                  <option value="<%= ty %>" <%= listing && listing.type === ty ? 'selected' : '' %>><%= ty %></option>
+                <% }) %>
+              </select>
+            </div>
+            <div class="field">
+              <label for="locationId"><%= t('filters.location') %></label>
+              <select id="locationId" name="locationId" required>
+                <% locations.forEach(function(loc) { %>
+                  <option value="<%= loc.id %>" <%= listing && listing.locationId === loc.id ? 'selected' : '' %>><%= loc.nameEn %></option>
+                <% }) %>
+              </select>
+            </div>
+            <div class="field">
+              <label for="price"><%= t('admin.price') %> (ETB)</label>
+              <input type="number" id="price" name="price" required min="0" value="<%= listing ? listing.price : '' %>" />
+            </div>
+            <div class="field">
+              <label for="priceUnit"><%= t('admin.priceUnit') %></label>
+              <input type="text" id="priceUnit" name="priceUnit" placeholder="e.g. per month, total" value="<%= listing ? listing.priceUnit : '' %>" />
+            </div>
+            <div class="field">
+              <label for="contactPhone"><%= t('admin.contactPhone') %></label>
+              <input type="tel" id="contactPhone" name="contactPhone" required value="<%= listing ? listing.contactPhone : '' %>" />
+            </div>
+            <div class="field">
+              <label for="status">Status</label>
+              <select id="status" name="status">
+                <option value="available" <%= listing && listing.status === 'available' ? 'selected' : '' %>>Available</option>
+                <option value="booked" <%= listing && listing.status === 'booked' ? 'selected' : '' %>>Booked</option>
+                <option value="sold" <%= listing && listing.status === 'sold' ? 'selected' : '' %>>Sold</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-top:20px; display:flex; gap:10px;">
+            <button type="submit" class="btn btn-primary"><%= t('admin.save') %></button>
+            <a href="/admin/listings/<%= categoryDef.id %>" class="btn btn-secondary"><%= t('admin.cancel') %></a>
+          </div>
+        </form>
+      </div>
+
+<%- include('partials/shell-footer') %>

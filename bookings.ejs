@@ -1,0 +1,56 @@
+<%- include('partials/shell-header', { pageTitle: t('admin.bookings'), currentSection: 'bookings' }) %>
+
+      <div class="admin-topbar">
+        <h2 class="mt-0"><%= t('admin.bookings') %></h2>
+      </div>
+
+      <div class="table-card">
+        <% if (bookings.length === 0) { %>
+          <div class="empty-state"><%= t('admin.noBookings') %></div>
+        <% } else { %>
+        <table>
+          <thead>
+            <tr>
+              <th><%= t('admin.customer') %></th>
+              <th><%= t('admin.phone') %></th>
+              <th><%= t('admin.for') %></th>
+              <th><%= t('admin.date') %></th>
+              <th>Status</th>
+              <th><%= t('admin.actions') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% bookings.forEach(function(b) { %>
+              <tr>
+                <td>
+                  <%= b.customerName %>
+                  <% if (b.message) { %><div class="muted" style="font-size:0.8rem;"><%= b.message %></div><% } %>
+                </td>
+                <td><%= b.customerPhone %></td>
+                <td><%= lang === 'am' ? b.listingTitleAm : b.listingTitleEn %> <span class="muted">(<%= b.category %>)</span></td>
+                <td><%= new Date(b.createdAt).toLocaleDateString() %></td>
+                <td><span class="badge badge-<%= b.status %>"><%= b.status %></span></td>
+                <td>
+                  <div class="row-actions">
+                    <form method="post" action="/admin/bookings/<%= b.id %>/status">
+                      <input type="hidden" name="status" value="confirmed" />
+                      <button type="submit" class="btn btn-primary btn-sm"><%= t('admin.markConfirmed') %></button>
+                    </form>
+                    <form method="post" action="/admin/bookings/<%= b.id %>/status">
+                      <input type="hidden" name="status" value="rejected" />
+                      <button type="submit" class="btn btn-danger btn-sm"><%= t('admin.markRejected') %></button>
+                    </form>
+                    <form method="post" action="/admin/bookings/<%= b.id %>/status">
+                      <input type="hidden" name="status" value="pending" />
+                      <button type="submit" class="btn btn-secondary btn-sm"><%= t('admin.markPending') %></button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <% } %>
+      </div>
+
+<%- include('partials/shell-footer') %>

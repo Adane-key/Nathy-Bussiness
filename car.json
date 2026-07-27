@@ -1,0 +1,34 @@
+[
+  {
+    "id": "car-0001",
+    "category": "car",
+    "type": "rent",
+    "titleEn": "Toyota Vitz for daily rent",
+    "titleAm": "ቶዮታ ቪትዝ ለዕለታዊ ኪራይ",
+    "descEn": "Clean city car, fuel efficient, available with or without driver.",
+    "descAm": "ንፁህ የከተማ መኪና፣ ቤንዚን ቆጣቢ፣ ከሹፌር ጋር ወይም ያለ ሹፌር ይገኛል።",
+    "price": 2200,
+    "currency": "ETB",
+    "priceUnit": "per day",
+    "locationId": "loc-03",
+    "contactPhone": "+251900000003",
+    "status": "available",
+    "createdAt": "2026-06-03T08:00:00.000Z"
+  },
+  {
+    "id": "car-0002",
+    "category": "car",
+    "type": "sell",
+    "titleEn": "Bajaj tricycle for sale",
+    "titleAm": "ባጃጅ ሶስት እግር መኪና ለሽያጭ",
+    "descEn": "Well serviced Bajaj, ready for commercial use, all documents available.",
+    "descAm": "በደንብ የተጠገነ ባጃጅ፣ ለንግድ ስራ ዝግጁ፣ ሙሉ ሰነዶች አሉት።",
+    "price": 480000,
+    "currency": "ETB",
+    "priceUnit": "total",
+    "locationId": "loc-04",
+    "contactPhone": "+251900000003",
+    "status": "available",
+    "createdAt": "2026-06-09T08:00:00.000Z"
+  }
+]

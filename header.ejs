@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= typeof pageTitle !== 'undefined' ? pageTitle + ' — ' : '' %><%= t('siteName') %></title>
+  <meta name="description" content="<%= t('tagline') %>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=Noto+Serif+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <%= t('siteName') %>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/" class="<%= activeNav === 'home' ? 'active' : '' %>"><%= t('nav.home') %></a>
+        <a href="/land" class="<%= activeNav === 'land' ? 'active' : '' %>"><%= t('nav.land') %></a>
+        <a href="/house" class="<%= activeNav === 'house' ? 'active' : '' %>"><%= t('nav.house') %></a>
+        <a href="/car" class="<%= activeNav === 'car' ? 'active' : '' %>"><%= t('nav.car') %></a>
+        <a href="/sound" class="<%= activeNav === 'sound' ? 'active' : '' %>"><%= t('nav.sound') %></a>
+        <a href="/decoration" class="<%= activeNav === 'decoration' ? 'active' : '' %>"><%= t('nav.decoration') %></a>
+      </nav>
+      <div class="lang-switch">
+        <a href="/lang/en" class="<%= lang === 'en' ? 'active' : '' %>">EN</a>
+        <a href="/lang/am" class="<%= lang === 'am' ? 'active' : '' %>">አማ</a>
+      </div>
+    </div>
+  </header>

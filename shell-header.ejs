@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= typeof pageTitle !== 'undefined' ? pageTitle + ' — ' : '' %><%= t('admin.dashboard') %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <%= t('siteName') %>
+      </div>
+      <a href="/admin" class="<%= currentSection === 'dashboard' ? 'active' : '' %>"><%= t('admin.dashboard') %></a>
+      <a href="/admin/bookings" class="<%= currentSection === 'bookings' ? 'active' : '' %>"><%= t('admin.bookings') %></a>
+      <a href="/admin/listings/land" class="<%= currentSection === 'listings' ? 'active' : '' %>"><%= t('admin.listings') %></a>
+      <a href="/admin/locations" class="<%= currentSection === 'locations' ? 'active' : '' %>"><%= t('admin.locations') %></a>
+      <form method="post" action="/admin/logout" style="margin-top:auto; padding-top:16px;">
+        <button type="submit" class="btn btn-secondary btn-sm" style="width:100%; border-color: rgba(251,247,239,0.3); color: rgba(251,247,239,0.85);"><%= t('admin.logout') %></button>
+      </form>
+    </aside>
+    <main class="admin-main">

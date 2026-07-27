@@ -1,0 +1,66 @@
+<%- include('partials/header', { pageTitle: lang === 'am' ? categoryDef.nameAm : categoryDef.nameEn }) %>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <span class="eyebrow"><%= t('nav.home') %> / <%= lang === 'am' ? categoryDef.nameAm : categoryDef.nameEn %></span>
+          <h2><%= lang === 'am' ? categoryDef.nameAm : categoryDef.nameEn %></h2>
+        </div>
+      </div>
+
+      <form class="filters-bar" method="get">
+        <div class="field">
+          <label for="location"><%= t('filters.location') %></label>
+          <select id="location" name="location">
+            <option value=""><%= t('filters.allLocations') %></option>
+            <% locations.forEach(function(loc) { %>
+              <option value="<%= loc.id %>" <%= selectedLocation === loc.id ? 'selected' : '' %>>
+                <%= lang === 'am' ? loc.nameAm : loc.nameEn %>
+              </option>
+            <% }) %>
+          </select>
+        </div>
+        <% if (categoryDef.types.length > 1) { %>
+        <div class="field">
+          <label for="type"><%= t('filters.type') %></label>
+          <select id="type" name="type">
+            <option value=""><%= t('filters.allTypes') %></option>
+            <% categoryDef.types.forEach(function(ty) { %>
+              <option value="<%= ty %>" <%= selectedType === ty ? 'selected' : '' %>><%= t('filters.' + ty) %></option>
+            <% }) %>
+          </select>
+        </div>
+        <% } %>
+        <div class="field">
+          <button type="submit" class="btn btn-primary"><%= t('filters.apply') %></button>
+        </div>
+      </form>
+
+      <div class="results-count"><%= listings.length %> <%= t('filters.resultsCount') %></div>
+
+      <% if (listings.length === 0) { %>
+        <div class="empty-state"><%= t('listing.noResults') %></div>
+      <% } else { %>
+        <div class="listing-grid">
+          <% listings.forEach(function(item) { %>
+            <% var loc = locations.find(function(l){ return l.id === item.locationId }); %>
+            <a href="/<%= categoryDef.id %>/<%= item.id %>" class="listing-card">
+              <div class="listing-media"></div>
+              <div class="listing-body">
+                <span class="badge badge-<%= item.type %>"><%= t('filters.' + item.type) %></span>
+                <h3><%= lang === 'am' ? item.titleAm : item.titleEn %></h3>
+                <div class="listing-loc">📍 <%= loc ? (lang === 'am' ? loc.nameAm : loc.nameEn) : '' %></div>
+                <div class="listing-price">
+                  <%= Number(item.price).toLocaleString() %> <%= item.currency %>
+                  <small> <%= item.priceUnit %></small>
+                </div>
+              </div>
+            </a>
+          <% }) %>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+<%- include('partials/footer') %>

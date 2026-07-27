@@ -1,0 +1,34 @@
+[
+  {
+    "id": "deco-0001",
+    "category": "decoration",
+    "type": "rent",
+    "titleEn": "Wedding hall decoration package",
+    "titleAm": "የሰርግ አዳራሽ ማስዋቢያ ጥቅል",
+    "descEn": "Full stage backdrop, flowers, lighting and table setup for weddings.",
+    "descAm": "ሙሉ የመድረክ ጀርባ፣ አበቦች፣ መብራትና የጠረጴዛ ዝግጅት ለሰርግ።",
+    "price": 15000,
+    "currency": "ETB",
+    "priceUnit": "per event",
+    "locationId": "loc-05",
+    "contactPhone": "+251900000005",
+    "status": "available",
+    "createdAt": "2026-06-06T08:00:00.000Z"
+  },
+  {
+    "id": "deco-0002",
+    "category": "decoration",
+    "type": "rent",
+    "titleEn": "Birthday and graduation decoration set",
+    "titleAm": "የልደትና የምረቃ ማስዋቢያ ስብስብ",
+    "descEn": "Balloons, banners and themed backdrops for birthdays and graduation parties.",
+    "descAm": "ፊኛዎች፣ ባነሮችና ገፅታ ያላቸው ጀርባዎች ለልደትና ለምረቃ ግብዣዎች።",
+    "price": 4500,
+    "currency": "ETB",
+    "priceUnit": "per event",
+    "locationId": "loc-02",
+    "contactPhone": "+251900000005",
+    "status": "available",
+    "createdAt": "2026-06-11T08:00:00.000Z"
+  }
+]
